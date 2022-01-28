@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net462</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup>
+      <OutputPath>..\bin\$(Configuration)\</OutputPath>
+    </PropertyGroup>
+
+</Project>

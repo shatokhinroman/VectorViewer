@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+
+        <IsPackable>false</IsPackable>
+
+        <TargetFramework>net462</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup>
+      <OutputPath>..\bin\$(Configuration)\</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="nunit" Version="3.10.1" />
+        <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\VectorViewer.Model\VectorViewer.Model.csproj" />
+      <ProjectReference Include="..\VectorViewer.Services\VectorViewer.Services.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{7AB333D7-960E-466F-8A49-61D8095845B1}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <RootNamespace>VectorViewer.UI</RootNamespace>
+        <AssemblyName>VectorViewer.UI</AssemblyName>
+        <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+        <WarningLevel>4</WarningLevel>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>..\bin\Debug\net462\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <Prefer32bit>false</Prefer32bit>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>..\bin\Release\net462\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="LightInject, Version=6.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\LightInject.6.4.0\lib\net46\LightInject.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Drawing" />
+        <Reference Include="System.IO" />
+        <Reference Include="System.Linq.Expressions" />
+        <Reference Include="System.Runtime" />
+        <Reference Include="System.Threading.Tasks" />
+        <Reference Include="System.Xml" />
+        <Reference Include="System.Xaml">
+            <RequiredTargetFramework>4.0</RequiredTargetFramework>
+        </Reference>
+        <Reference Include="WindowsBase" />
+        <Reference Include="PresentationCore" />
+        <Reference Include="PresentationFramework" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Commands\Base\CommandBase.cs" />
+        <Compile Include="Commands\Base\IClearCommand.cs" />
+        <Compile Include="Commands\Base\IDrawCommand.cs" />
+        <Compile Include="Commands\Base\ISelectFileCommand.cs" />
+        <Compile Include="Commands\Base\IVectorViewerCommand.cs" />
+        <Compile Include="Commands\Impl\ClearCommand.cs" />
+        <Compile Include="Commands\Impl\DrawCommand.cs" />
+        <Compile Include="Commands\Impl\SelectFileCommand.cs" />
+        <Compile Include="MainWindow.xaml.cs" />
+        <Compile Include="Native\OsInterop.cs" />
+        <Compile Include="Module.cs" />
+        <Compile Include="PrimitivesViewModel\IPrimitivesViewModel.cs" />
+        <Compile Include="PrimitivesViewModel\PrimitivesViewModel.cs" />
+        <Compile Include="Primitives\Base\IPrimitiveViewModel.cs" />
+        <Compile Include="Primitives\Factory\IPrimitiveViewModelFactory.cs" />
+        <Compile Include="Primitives\Factory\PrimitiveViewModelFactory.cs" />
+        <Compile Include="Utils\ColorUtils.cs" />
+        <Compile Include="Utils\PointUtils.cs" />
+        <Compile Include="Utils\WindowUtils.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Primitives\Base\PrimitiveViewModelBase.cs" />
+        <Compile Include="Primitives\Impl\CircleViewModel.cs" />
+        <Compile Include="Primitives\Impl\LineViewModel.cs" />
+        <Compile Include="Primitives\Impl\TriangleViewModel.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs">
+            <SubType>Code</SubType>
+        </Compile>
+        <Compile Include="Properties\Resources.Designer.cs">
+            <AutoGen>True</AutoGen>
+            <DesignTime>True</DesignTime>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+        <EmbeddedResource Include="Properties\Resources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\VectorViewer.Interfaces\VectorViewer.Interfaces.csproj">
+        <Project>{c297c7a7-8348-47f8-8f10-ce5952bb821b}</Project>
+        <Name>VectorViewer.Interfaces</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\VectorViewer.Model\VectorViewer.Model.csproj">
+        <Project>{513522b2-3be1-4df8-865c-a71e3bce0b48}</Project>
+        <Name>VectorViewer.Model</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\VectorViewer.Services\VectorViewer.Services.csproj">
+        <Project>{deee2a6e-b093-4177-a61c-8af91f34a04b}</Project>
+        <Name>VectorViewer.Services</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\VectorViewer.Utils\VectorViewer.Utils.csproj">
+        <Project>{16dfb4bb-3de1-4f39-9ee3-98af069bf382}</Project>
+        <Name>VectorViewer.Utils</Name>
+      </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <Page Include="MainWindow.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+      </Page>
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="packages.config" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

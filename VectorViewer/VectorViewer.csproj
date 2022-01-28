@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <UseWPF>true</UseWPF>
+        <TargetFramework>net462</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup>
+      <OutputPath>..\bin\$(Configuration)\</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="LightInject" Version="6.4.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\VectorViewer.Interfaces\VectorViewer.Interfaces.csproj" />
+    </ItemGroup>
+
+</Project>
